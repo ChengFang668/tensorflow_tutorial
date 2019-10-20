@@ -1,0 +1,22 @@
+import os
+import sys
+
+def Rename():
+    #Path = "F:\\test\\"  # windows下的文件目录
+    #Path = input("请输入你需要操作的目录(格式如'F:\\test')：")
+    Path = r"E:\Desktop\Data\vip\vip_products_size_data\vipshop_datas"
+    filelist = os.listdir(Path)
+#     print(filelist)
+    for files in filelist:
+        Olddir = os.path.join(Path,files)
+        print(files)  #打印出老的文件夹里的目录和文件
+#         if os.path.isdir(Olddir):  #判断是否是文件，是文件，跳过
+#             continue
+        filename = os.path.splitext(files)[0]
+        filetype = os.path.splitext(files)[1]
+        if filetype == 'sql':
+            Newdir = os.path.join(Path,filename + '.txt')
+            os.rename(Olddir,Newdir)
+ 
+if __name__=='__main__':
+    Rename()
